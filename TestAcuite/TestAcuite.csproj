@@ -1,0 +1,41 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <ApplicationIcon>Resources\Images\eye.ico</ApplicationIcon>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Resource Include="Resources\Fonts\*.otf" />
+	<Resource Include="Resources\Fonts\*.ttf" />
+	<Content Include="Resources\Images\eye.ico" />
+	<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
+	<PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
+    <Resource Include="Resources\Images\distance.png" />
+    <Resource Include="Resources\Images\dotnet_bot.svg" />
+    <Resource Include="Resources\Images\eye.png" />
+    <Resource Include="Resources\Images\fontsize.png" />
+    <Resource Include="Resources\Images\help.png" />
+    <Resource Include="Resources\Images\planche.png" />
+    <Resource Include="Resources\Images\ruler.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
