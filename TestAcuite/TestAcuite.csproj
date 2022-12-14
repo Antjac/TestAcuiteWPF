@@ -13,7 +13,6 @@
 	<Resource Include="Resources\Fonts\*.ttf" />
 	<Content Include="Resources\Images\eye.ico" />
 	<PackageReference Include="CommunityToolkit.Mvvm" Version="8.0.0" />
-	<PackageReference Include="MvvmLightLibs" Version="5.4.1.1" />
     <Resource Include="Resources\Images\distance.png" />
     <Resource Include="Resources\Images\dotnet_bot.svg" />
     <Resource Include="Resources\Images\eye.png" />

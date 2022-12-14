@@ -1,7 +1,8 @@
-﻿using GalaSoft.MvvmLight.Messaging;
+﻿using CommunityToolkit.Mvvm.Messaging;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
+using TestAcuite.Class;
 using TestAcuite.ViewModels;
 
 namespace TestAcuite
@@ -18,13 +19,12 @@ namespace TestAcuite
             DataContext = new AcuiteViewModel();
             _viewModel = DataContext as AcuiteViewModel;
             this.KeyDown += new KeyEventHandler(_viewModel.OnKeyPressed);
-            Messenger.Default.Register<NotificationMessage>(this, (nm) =>
+            WeakReferenceMessenger.Default.Register<NotificationMessage>(this, (r, m) =>
             {
-                if (nm.Notification == "CloseWindowsBoundToMe")
-                {
-                    if (nm.Sender == this.DataContext)
-                        this.Close();
-                }
+                 if (m.Value == "CloseAcuite")
+                 {
+                    this.Close();
+                 }
             });
         }
     }

@@ -1,8 +1,10 @@
-﻿using GalaSoft.MvvmLight.Messaging;
+﻿using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Messaging;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
 using System.Windows.Input;
+using TestAcuite.Class;
 using TestAcuite.ViewModels;
 
 namespace TestAcuite
@@ -16,12 +18,11 @@ namespace TestAcuite
         {
             InitializeComponent();
             DataContext = new CalibrationViewModel();
-            Messenger.Default.Register<NotificationMessage>(this, (nm) =>
+            WeakReferenceMessenger.Default.Register<NotificationMessage>(this, (r, m) =>
             {
-                if (nm.Notification == "CloseWindowsBoundToMe")
+                if (m.Value == "CloseCalibration")
                 {
-                    if (nm.Sender == this.DataContext)
-                        this.Close();
+                    this.Close();
                 }
             });
         }
