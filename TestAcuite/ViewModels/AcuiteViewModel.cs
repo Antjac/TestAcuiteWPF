@@ -1,4 +1,4 @@
-﻿using GalaSoft.MvvmLight.Messaging;
+﻿using CommunityToolkit.Mvvm.Messaging;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -270,8 +270,8 @@ namespace TestAcuite.ViewModels
 
         public void notifyWindowToClose()
         {
-            Messenger.Default.Send<NotificationMessage>(
-                new NotificationMessage(this, "CloseWindowsBoundToMe")
+            WeakReferenceMessenger.Default.Send<NotificationMessage>(
+                new NotificationMessage("CloseAcuite")
             );
         }
         public void OnPropertyChanged([CallerMemberName] string name = "") =>

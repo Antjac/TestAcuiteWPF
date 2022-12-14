@@ -1,5 +1,5 @@
 ﻿using CommunityToolkit.Mvvm.Input;
-using GalaSoft.MvvmLight.Messaging;
+using CommunityToolkit.Mvvm.Messaging;
 using System;
 using System.CodeDom.Compiler;
 using System.ComponentModel;
@@ -66,7 +66,7 @@ namespace TestAcuite.ViewModels
             }
         }
 
-        public int TextSize
+        public decimal TextSize
         {
             get { return _params.TextSize; }
             set
@@ -113,8 +113,8 @@ namespace TestAcuite.ViewModels
 
         public void notifyWindowToClose()
         {
-            Messenger.Default.Send<NotificationMessage>(
-                new NotificationMessage(this, "CloseWindowsBoundToMe")
+            WeakReferenceMessenger.Default.Send<NotificationMessage>(
+                new NotificationMessage("CloseCalibration")
             );
         }
 
